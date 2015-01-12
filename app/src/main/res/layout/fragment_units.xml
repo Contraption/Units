@@ -63,4 +63,21 @@
         android:textSize="@dimen/unitValueTextSize"
         android:textColor="@color/grey_grey" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="00"
+        android:id="@+id/temperatureUnitToTextView"
+        android:gravity="center"
+        android:textSize="@dimen/unitValueTextSize"
+        android:textColor="#5E5E5E" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/temperatureToSeekBar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
 </LinearLayout>

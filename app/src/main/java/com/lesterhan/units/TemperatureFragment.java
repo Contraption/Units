@@ -14,8 +14,11 @@ import static android.widget.SeekBar.*;
 public class temperatureFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private TextView temperatureUnitFromTextView;
-    private SeekBar temperatureFromSeekBar;
+    private TextView temperatureFahrenheitTextView;
+    private SeekBar temperatureFahrenheitSeekBar;
+
+    private TextView temperatureCelsiusTextView;
+    private SeekBar temperatureCelsiusSeekBar;
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -34,10 +37,28 @@ public class temperatureFragment extends Fragment {
 
     private void initializeContentWidgets(View rootview){
 
-        temperatureUnitFromTextView = (TextView) rootview.findViewById(R.id.temperatureUnitFromTextView);
-        temperatureFromSeekBar = (SeekBar) rootview.findViewById(R.id.temperatureFromSeekBar);
+        temperatureFahrenheitTextView = (TextView) rootview.findViewById(R.id.temperatureUnitFromTextView);
+        temperatureFahrenheitSeekBar = (SeekBar) rootview.findViewById(R.id.temperatureFromSeekBar);
+        temperatureCelsiusTextView = (TextView) rootview.findViewById(R.id.temperatureUnitToTextView);
+        temperatureCelsiusSeekBar = (SeekBar) rootview.findViewById(R.id.temperatureToSeekBar);
 
     }
+
+    private String getTemperatureText(float temperature, char unit){
+        return temperature+"\u00b0 "+unit;
+    }
+
+    private float getCelsiusFromFahrenheit(float fahrenheitTemperature) {
+        float celsiusTemperature = (fahrenheitTemperature - 32) * 5 / 9;
+        return celsiusTemperature;
+    }
+
+    private float getFahrenheitFromCelsius(float celsiusTemperature) {
+        float fahrenheitTemperature = celsiusTemperature * 9 / 5 + 32;
+        return fahrenheitTemperature;
+    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,17 +67,17 @@ public class temperatureFragment extends Fragment {
 
         initializeContentWidgets(rootView);
 
-        temperatureFromSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            int seekBarProgress = 0;
+        temperatureFahrenheitTextView.setText(getTemperatureText(0, 'F'));
+        temperatureCelsiusTextView.setText(getTemperatureText(0, 'C'));
+
+        temperatureFahrenheitSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                seekBarProgress = progress;
+                float temperatureInFahrenheit = getCelsiusFromFahrenheit((float) progress);
 
-                String temperatureText = seekBarProgress+"\u00b0 F";
-
-                temperatureUnitFromTextView.setText(temperatureText);
-
+                temperatureFahrenheitTextView.setText(getTemperatureText((float) progress, 'F'));
+                //temperatureCelsiusSeekBar.setProgress((int) temperatureInFahrenheit);
             }
 
             @Override
@@ -68,6 +89,26 @@ public class temperatureFragment extends Fragment {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
+        temperatureCelsiusSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float temperatureInCelsius = getFahrenheitFromCelsius((float) progress);
+
+                temperatureCelsiusTextView.setText(getTemperatureText((float) progress, 'C'));
+                temperatureFahrenheitSeekBar.setProgress((int) temperatureInCelsius);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+
 
         return rootView;
     }

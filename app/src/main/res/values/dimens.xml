@@ -9,7 +9,7 @@
     <dimen name="bannerHeight">50dp</dimen>
 
 
-    <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="headerTextSize">35sp</dimen>
     <dimen name="headerMarginBottom">15dp</dimen>
     <dimen name="unitValueTextSize">70sp</dimen>
 </resources>
