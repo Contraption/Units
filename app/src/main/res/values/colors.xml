@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="temperature_bannerColor">#ff0000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey_lightGrey">#eeeeee</color>
+    <color name="grey_grey">#969696</color>
+    <color name="grey_darkGrey">#5E5E5E</color>
+</resources>
