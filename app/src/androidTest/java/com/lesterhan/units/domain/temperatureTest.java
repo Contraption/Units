@@ -1,11 +1,14 @@
 package com.lesterhan.units.domain;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class temperatureTest {
+@RunWith(RobolectricTestRunner.class)
+public class TemperatureTest {
 
     @Test
     public void shouldReturnFahrenheit33point8when1degreesCelsius(){

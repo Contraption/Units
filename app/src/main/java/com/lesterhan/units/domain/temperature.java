@@ -9,7 +9,7 @@ public class Temperature {
     }
 
     public float getFahrenheit() {
-        return celsius * 9 / 5 + 32;
+        return celsius * 9f / 5f + 32f;
     }
 
     public void setTemperatureCelsius(float temperatureCelsius) {
@@ -17,7 +17,7 @@ public class Temperature {
     }
 
     public void setTemperatureFahrenheit(float temperatureFahrenheit) {
-        this.celsius = (temperatureFahrenheit - 32) * 5 / 9;
+        this.celsius = (temperatureFahrenheit - 32f) * 5f / 9f;
     }
 
     public float getCelsius() {

@@ -1,16 +1,11 @@
 package com.lesterhan.units;
 
-import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
 
@@ -50,7 +45,7 @@ public class UnitsActivity extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, temperatureFragment.newInstance(position + 1))
+                .replace(R.id.container, TemperatureFragment.newInstance(position + 1))
                 .commit();
     }
 

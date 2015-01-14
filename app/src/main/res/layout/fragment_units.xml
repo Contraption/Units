@@ -18,12 +18,12 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="@string/temperature_bannerText"
-            android:id="@+id/textView"
+            android:id="@+id/temperatureBanner"
             android:gravity="center|bottom"
             android:textColor="@color/white"
             android:typeface="normal"
-            android:phoneNumber="false" />
+            android:phoneNumber="false"
+            android:singleLine="false" />
     </FrameLayout>
 
     <TextView
@@ -39,16 +39,17 @@
     <SeekBar
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/temperatureFromSeekBar"
+        android:id="@+id/temperatureFahrenheitSeekbar"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:max="260"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="00"
-        android:id="@+id/temperatureUnitFromTextView"
+        android:id="@+id/temperatureFahrenheitTextView"
         android:gravity="center"
         android:textSize="@dimen/unitValueTextSize"
         android:textColor="#5E5E5E" />
@@ -68,7 +69,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="00"
-        android:id="@+id/temperatureUnitToTextView"
+        android:id="@+id/temperatureCelsiusTextView"
         android:gravity="center"
         android:textSize="@dimen/unitValueTextSize"
         android:textColor="#5E5E5E" />
@@ -76,8 +77,10 @@
     <SeekBar
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/temperatureToSeekBar"
+        android:max="145"
+        android:id="@+id/temperatureCelsiusSeekBar"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:focusableInTouchMode="false" />
 
 </LinearLayout>
