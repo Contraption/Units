@@ -8,7 +8,7 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/bannerHeight"
-        android:background="@color/temperature_bannerColor"
+        android:background="@color/purpletheme_color"
         android:id="@+id/temperature_bannerFrameLayout"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -42,7 +42,8 @@
         android:id="@+id/temperatureFahrenheitSeekbar"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:max="260"/>
+        android:max="260"
+        style="@style/SeekBarTealTheme" />
 
     <TextView
         android:layout_width="match_parent"
@@ -81,6 +82,7 @@
         android:id="@+id/temperatureCelsiusSeekBar"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:focusableInTouchMode="false" />
+        android:focusableInTouchMode="false"
+        style="@style/SeekBarTealTheme" />
 
 </LinearLayout>
